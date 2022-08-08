@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Edicao</title>
+</head>
+<body>
+    <h3> CADASTRO </h3>
+    <form th:action="@{/cadastro}" method="post" th:object="${item}">
+    
+    	<label>ID</label>
+        <input type="text" th:field="*{id}" readonly/>
+        
+    	<label for="iddescricao">Descrição</label>
+        <input id="iddescricao" type="text" placeholder="Descrição do item" th:field="*{descricao}" />
+    
+    	<label for="iddimensao">Dimensão</label>
+        <input id="iddimensao" type="text" placeholder="Dimensão do item" th:field="*{dimensao}" />
+        
+        <label for="idcomodo">Cômodo</label>
+        <input id="idcomodo" type="text" placeholder="Cômodo para guardar o item" th:field="*{comodo}" />
+        
+        <button class="btn waves-effect waves-light">Salvar</button>
+        
+    </form>
+</body>
+</html>

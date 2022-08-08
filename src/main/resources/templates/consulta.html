@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Consulta</title>
+</head>
+<body>
+     <nav>
+    <div class="nav-wrapper orange darken-2">
+      <a href="#" class="brand-logo center">Consulta de Itens</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a th:href="@{/}">Inicio</a></li>
+        <li><a th:href="@{/cadastro}">Cadastro</a></li>
+      </ul>
+    </div>
+  </nav>
+<table class="centered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Dimensão</th>
+            <th>Cômodo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="item: ${itens}">
+           	 <td th:text="*{item.id}"/>
+             <td th:text="*{item.descricao}"/>
+             <td th:text="*{item.dimensao}"/>
+             <td th:text="*{item.comodo}"/>
+             <td>
+             	<a class="btn waves-effect waves-light" th:href="@{'/consulta/'+${item.id}}">Editar</a>
+             	<a class="btn waves-effect waves-light" th:href="@{'/delete/'+${item.id}}">Excluir</a>
+             </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
